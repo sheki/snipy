@@ -1,6 +1,9 @@
-html, body{ 
+html, body, h2{ 
     margin:0; 
-    padding:0; 
+    padding:0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+ 
+
 } 
 
 #pagewidth{ }
@@ -34,6 +37,7 @@ html, body{
 textarea {
     width : 90%;
     font-family : Monaco,Courier,"DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+    float : down;
 }
 
 #maincol{
@@ -44,16 +48,20 @@ textarea {
 #inp_form {
     margin: auto;
     width : 75%;
+    position : relative;
 }
+}
+
 
 #snipname {
     margin : 10px;
     float : left;
+    top : 0;
 }
 
 #codetype {
     margin : 10px;
-    float : right;
+    float : left;
 }
 
 .clearfix:after {

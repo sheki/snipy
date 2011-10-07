@@ -2,36 +2,23 @@
 
 {% block content %}
 <div id="inp_form">
-<h3 id="">Snippet</h3>
+    <h3 id="">Snippet</h3>
     <form action="{{ url_for('new_post') }}" method="post" accept-charset="utf-8">
         {{ form.csrf_token }}
         <p>
-        <label for="title"></label>
+        <div>
+            <label for="content"></label>
+            <div id="snipname">
+                <input id=name name=name type=text placeholder="Name of Snippet" required >
+            </div>
+            <div id="codetype">
+                {{ form.lang|safe }}
+            </div>
+            <textarea id=code rows=15 name=code placeholder="Code Snippet" required autofocus></textarea> 
+            </p>
+            <p><input type="submit" value="Save"/></p>
+        </div>
 
-        {{ form.title|safe }}
-
-        {% if form.title.errors %}
-        <ul class="errors">
-            {% for error in form.title.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        </p>
-        <p>
-        <label for="content"></label>
-
-        {{ form.content|safe }}
-
-        {% if form.content.errors %}
-        <ul class="errors">
-            {% for error in form.content.errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        </p>
-        <p><input type="submit" value="Save post"/></p>
     </form>
 </div>
 {% endblock %}
