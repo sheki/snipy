@@ -17,14 +17,6 @@ html, body{
     color : white;
 } 
 
-textarea {
-    width : 90%;
-    font-family : Monaco,Courier,"DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
-html, body{ 
-    margin:0; 
-    padding:0; 
-} 
-
 #pagewidth{ }
 
 #header{
@@ -81,32 +73,4 @@ textarea {
 
     font-size : 12px;
 }
-
-#maincol{
-    background-color: #FFFFFF;  
-    position: relative; 
-}
-
-#inp_form {
-    margin: auto;
-    width : 75%;
-}
-
-#snipname {
-    margin : 10px;
-}
-.clearfix:after {
-    content: "."; 
-    display: block; 
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
-}
-
-.clearfix{display: inline-block;}
-
-/* Hides from IE-mac \*/
-* html .clearfix{height: 1%;}
-.clearfix{display: block;}
-/* End hide from IE-mac */  
 
