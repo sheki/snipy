@@ -2,20 +2,17 @@ from pastie import app
 import logging
 import models
 from forms import * 
-from flask import render_template
+from flask import render_template,redirect, url_for
 from flask import flash
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
 from pygments.formatters import HtmlFormatter
 from pygments.styles import get_style_by_name
 
-@app.route('/random')
-def random():
-    return render_template('test.html',name="RANGO") 
 
-@app.route('/rango')
-def random():
-    return render_template('test.html',name="GO RANGO") 
+@app.route('/')
+def root():
+    return redirect(url_for('new_post'))
 
 @app.route('/posts/new', methods = ['GET', 'POST'])
 def new_post():
@@ -25,9 +22,10 @@ def new_post():
         lang=getLangByNo(form.lang.data)
         paste= models.Paste(id=id,content=form.code.data,lang=lang)
         paste.put()
-        flash('Post saved on database.')
-        return id
+        logging.debug("ID : %s"%id)
+        return redirect(url_for('existing_post',post_id=id))   
     return render_template('new_post.html', form=form)
+
 
 @app.route('/posts/<post_id>')
 def existing_post(post_id):
@@ -37,7 +35,7 @@ def existing_post(post_id):
     if paste:
         code=htmlFor(paste.content,paste.lang) 
         return render_template('existing_post.html',title=paste.id,code=code)  
-    return "HELL FOR %s"%post_id       
+    return "Some Error has happened for post id %s"%post_id       
 
 
 
